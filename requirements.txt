@@ -1,0 +1,2 @@
+SOMENDER==1.1
+git+https://github.com/TencentAILabHealthcare/pysodb.git
