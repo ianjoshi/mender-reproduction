@@ -1,0 +1,10 @@
+anndata
+annoy==1.17.3
+faiss-cpu==1.11.0
+hnswlib==0.8.0
+igraph==0.11.8
+leidenalg==0.10.2
+numpy
+matplotlib
+scanpy
+git+https://github.com/TencentAILabHealthcare/pysodb.git
