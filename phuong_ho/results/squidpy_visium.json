@@ -1,0 +1,292 @@
+{
+    "V1_Breast_Cancer_Block_A_Section_1": {
+        "MENDER": {
+            "pas": 0.04818325434439179,
+            "chaos": 0.05731086111264458
+        },
+        "MENDER+MISO": {
+            "pas": 0.009741969457609268,
+            "chaos": 0.056950467969836355
+        }
+    },
+    "V1_Breast_Cancer_Block_A_Section_2": {
+        "MENDER": {
+            "pas": 0.024579884625031353,
+            "chaos": 0.05583670198367177
+        },
+        "MENDER+MISO": {
+            "pas": 0.00928016052169551,
+            "chaos": 0.05575916422167608
+        }
+    },
+    "V1_Human_Heart": {
+        "MENDER": {
+            "pas": 0.02072050859430186,
+            "chaos": 0.05594699360120666
+        },
+        "MENDER+MISO": {
+            "pas": 0.0,
+            "chaos": 0.05586314672362752
+        }
+    },
+    "V1_Human_Lymph_Node": {
+        "MENDER": {
+            "pas": 0.021313506815365552,
+            "chaos": 0.05653098799560605
+        },
+        "MENDER+MISO": {
+            "pas": 0.0161090458488228,
+            "chaos": 0.05647298047551344
+        }
+    },
+    "V1_Mouse_Kidney": {
+        "MENDER": {
+            "pas": 0.02086230876216968,
+            "chaos": 0.09843445001835606
+        },
+        "MENDER+MISO": {
+            "pas": 0.01321279554937413,
+            "chaos": 0.09746217902772483
+        }
+    },
+    "V1_Adult_Mouse_Brain": {
+        "MENDER": {
+            "pas": 0.01998519615099926,
+            "chaos": 0.0682287424827231
+        },
+        "MENDER+MISO": {
+            "pas": 0.019615099925980754,
+            "chaos": 0.06856172448056562
+        }
+    },
+    "V1_Mouse_Brain_Sagittal_Posterior": {
+        "MENDER": {
+            "pas": 0.01609538002980626,
+            "chaos": 0.05718095282666038
+        },
+        "MENDER+MISO": {
+            "pas": 0.018479880774962744,
+            "chaos": 0.05744364082804663
+        }
+    },
+    "V1_Mouse_Brain_Sagittal_Posterior_Section_2": {
+        "MENDER": {
+            "pas": 0.026755852842809364,
+            "chaos": 0.05657124677904709
+        },
+        "MENDER+MISO": {
+            "pas": 0.011553663727576772,
+            "chaos": 0.05654150046914641
+        }
+    },
+    "V1_Mouse_Brain_Sagittal_Anterior": {
+        "MENDER": {
+            "pas": 0.028200371057513916,
+            "chaos": 0.06364748386222555
+        },
+        "MENDER+MISO": {
+            "pas": 0.022634508348794064,
+            "chaos": 0.06499527273103337
+        }
+    },
+    "V1_Mouse_Brain_Sagittal_Anterior_Section_2": {
+        "MENDER": {
+            "pas": 0.020176991150442476,
+            "chaos": 0.06016824512132291
+        },
+        "MENDER+MISO": {
+            "pas": 0.018407079646017697,
+            "chaos": 0.060369016990269725
+        }
+    },
+    "V1_Human_Brain_Section_1": {
+        "MENDER": {
+            "pas": 0.014460285132382893,
+            "chaos": 0.05256489436168434
+        },
+        "MENDER+MISO": {
+            "pas": 0.014867617107942974,
+            "chaos": 0.05262716587710664
+        }
+    },
+    "V1_Human_Brain_Section_2": {
+        "MENDER": {
+            "pas": 0.012670957361222849,
+            "chaos": 0.05209992455467582
+        },
+        "MENDER+MISO": {
+            "pas": 0.014481094127111826,
+            "chaos": 0.05224454490267402
+        }
+    },
+    "V1_Adult_Mouse_Brain_Coronal_Section_1": {
+        "MENDER": {
+            "pas": 0.013778849466069583,
+            "chaos": 0.06482639670525675
+        },
+        "MENDER+MISO": {
+            "pas": 0.013778849466069583,
+            "chaos": 0.06479264240836458
+        }
+    },
+    "V1_Adult_Mouse_Brain_Coronal_Section_2": {
+        "MENDER": {
+            "pas": 0.013893836836480229,
+            "chaos": 0.06587410498711276
+        },
+        "MENDER+MISO": {
+            "pas": 0.011756323477021732,
+            "chaos": 0.06632436471555225
+        }
+    },
+    "Targeted_Visium_Human_Cerebellum_Neuroscience": {
+        "MENDER": {
+            "pas": 0.03325320512820513,
+            "chaos": 0.05203187902517627
+        },
+        "MENDER+MISO": {
+            "pas": 0.011618589743589744,
+            "chaos": 0.051838836845315
+        }
+    },
+    "Parent_Visium_Human_Cerebellum": {
+        "MENDER": {
+            "pas": 0.033854166666666664,
+            "chaos": 0.051839527909999676
+        },
+        "MENDER+MISO": {
+            "pas": 0.013020833333333334,
+            "chaos": 0.05184984193439716
+        }
+    },
+    "Targeted_Visium_Human_SpinalCord_Neuroscience": {
+        "MENDER": {
+            "pas": 0.016714082503556188,
+            "chaos": 0.06482919377801583
+        },
+        "MENDER+MISO": {
+            "pas": 0.007112375533428165,
+            "chaos": 0.06482550885765798
+        }
+    },
+    "Parent_Visium_Human_SpinalCord": {
+        "MENDER": {
+            "pas": 0.013513513513513514,
+            "chaos": 0.06489574165077377
+        },
+        "MENDER+MISO": {
+            "pas": 0.014935988620199146,
+            "chaos": 0.06519856088681175
+        }
+    },
+    "Targeted_Visium_Human_Glioblastoma_Pan_Cancer": {
+        "MENDER": {
+            "pas": 0.04354094579008074,
+            "chaos": 0.06108363965481601
+        },
+        "MENDER+MISO": {
+            "pas": 0.020472895040369088,
+            "chaos": 0.05976705723394889
+        }
+    },
+    "Parent_Visium_Human_Glioblastoma": {
+        "MENDER": {
+            "pas": 0.023933102652825836,
+            "chaos": 0.060166948081777805
+        },
+        "MENDER+MISO": {
+            "pas": 0.020472895040369088,
+            "chaos": 0.060044992664942134
+        }
+    },
+    "Targeted_Visium_Human_BreastCancer_Immunology": {
+        "MENDER": {
+            "pas": 0.015028901734104046,
+            "chaos": 0.055995391049223804
+        },
+        "MENDER+MISO": {
+            "pas": 0.03815028901734104,
+            "chaos": 0.05617168644243174
+        }
+    },
+    "Parent_Visium_Human_BreastCancer": {
+        "MENDER": {
+            "pas": 0.021502890173410404,
+            "chaos": 0.056188186076969036
+        },
+        "MENDER+MISO": {
+            "pas": 0.014797687861271676,
+            "chaos": 0.056241193465372964
+        }
+    },
+    "Targeted_Visium_Human_OvarianCancer_Pan_Cancer": {
+        "MENDER": {
+            "pas": 0.019467506441454337,
+            "chaos": 0.059350840153548225
+        },
+        "MENDER+MISO": {
+            "pas": 0.020326367019753794,
+            "chaos": 0.05907734811896222
+        }
+    },
+    "Targeted_Visium_Human_OvarianCancer_Immunology": {
+        "MENDER": {
+            "pas": 0.013741769252791297,
+            "chaos": 0.059376356993560996
+        },
+        "MENDER+MISO": {
+            "pas": 0.01860864586315488,
+            "chaos": 0.05938586250601783
+        }
+    },
+    "Parent_Visium_Human_OvarianCancer": {
+        "MENDER": {
+            "pas": 0.009447466361294017,
+            "chaos": 0.05938942920758826
+        },
+        "MENDER+MISO": {
+            "pas": 0.014886916690523905,
+            "chaos": 0.05934810670183078
+        }
+    },
+    "Targeted_Visium_Human_ColorectalCancer_GeneSignature": {
+        "MENDER": {
+            "pas": 0.019120458891013385,
+            "chaos": 0.06572463489929534
+        },
+        "MENDER+MISO": {
+            "pas": 0.010197578075207138,
+            "chaos": 0.06451194561398872
+        }
+    },
+    "Parent_Visium_Human_ColorectalCancer": {
+        "MENDER": {
+            "pas": 0.012109623964308477,
+            "chaos": 0.06504435659875685
+        },
+        "MENDER+MISO": {
+            "pas": 0.013702995538559592,
+            "chaos": 0.06469728142960077
+        }
+    },
+    "Visium_FFPE_Mouse_Brain_IF": {
+        "MENDER": {
+            "pas": 0.013535684987694831,
+            "chaos": 0.07040147045551567
+        },
+        "MENDER+MISO": {
+            "pas": 0.011484823625922888,
+            "chaos": 0.07068084038783982
+        }
+    },
+    "Visium_FFPE_Mouse_Kidney": {
+        "MENDER": {
+            "pas": 0.019846350832266324,
+            "chaos": 0.06588614036381178
+        },
+        "MENDER+MISO": {
+            "pas": 0.016005121638924456,
+            "chaos": 0.06509239621812901
+        }
+    }
+}
