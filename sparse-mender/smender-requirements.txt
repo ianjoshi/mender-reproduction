@@ -1,10 +1,12 @@
-anndata
+anndata==0.11.4
 annoy==1.17.3
 faiss-cpu==1.11.0
 hnswlib==0.8.0
 igraph==0.11.8
 leidenalg==0.10.2
-numpy
-matplotlib
-scanpy
+matplotlib==3.10.3
+numpy==2.2.6
+psutil==7.0.0
+scanpy==1.11.2
+squidpy==1.6.5
 git+https://github.com/TencentAILabHealthcare/pysodb.git
