@@ -7,7 +7,7 @@ from scipy.spatial.distance import squareform, pdist
 import psutil
 from sklearn.metrics import *
 from sklearn.decomposition import NMF, FastICA, FactorAnalysis
-from smender.utils import res_search
+from smender.utils import *
 import os
 import matplotlib.pyplot as plt
 from multiprocessing import Process, Pool
