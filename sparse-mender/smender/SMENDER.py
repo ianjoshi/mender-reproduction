@@ -686,24 +686,36 @@ class SMENDER(object):
         return self.smender_time
         
     def start_smender_memory(self):
-        """Start memory tracking for the entire SMENDER operation."""
+        """Initialize cumulative memory tracking."""
         if self.is_tracking_smender_memory:
             print("SMENDER memory tracking already started.")
             return
         self.is_tracking_smender_memory = True
-        self.smender_memory_start = psutil.Process().memory_info().rss / (1024 ** 2)
+        self.smender_memory = 0.0  # Reset cumulative total
+        self.smender_memory_last = psutil.Process().memory_info().rss / (1024 ** 2)
+        if self.verbose:
+            print(f"Started SMENDER memory tracking at: {self.smender_memory_last:.2f} MB")
         
     def stop_smender_memory(self):
-        """Stop memory tracking for the entire SMENDER operation and return total usage."""
+        """Stop memory tracking and finalize cumulative total."""
         if not self.is_tracking_smender_memory:
             print("SMENDER memory tracking not started.")
             return self.smender_memory
+        self.update_smender_memory()  # Final update
         self.is_tracking_smender_memory = False
-        current_memory = psutil.Process().memory_info().rss / (1024 ** 2)
-        usage = current_memory - self.smender_memory_start
-        self.smender_memory += max(usage, 0)
-        self.smender_memory_start = None
+        if self.verbose:
+            print(f"Stopped SMENDER memory tracking. Total memory used: {self.smender_memory:.2f} MB")
         return self.smender_memory
+    
+    def update_smender_memory(self):
+        """Accumulate memory usage deltas."""
+        if self.is_tracking_smender_memory:
+            current_memory = psutil.Process().memory_info().rss / (1024 ** 2)
+            delta = max(current_memory - self.smender_memory_last, 0)
+            self.smender_memory += delta
+            self.smender_memory_last = current_memory
+            if self.verbose:
+                print(f"Memory increased by {delta:.2f} MB (total: {self.smender_memory:.2f} MB)")
         
     def start_dim_reduction_timing(self):
         """Start timing for dimensionality reduction across all batches."""
@@ -785,14 +797,17 @@ class SMENDER(object):
     
     def prepare(self):
         """Prepare data for SMENDER processing."""
+        self.update_smender_memory()
         self.adata_list = []
         self.batch_list = np.array(self.adata.obs[self.batch_obs].cat.categories)
         for b in self.batch_list:
             cur_a = self.adata[self.adata.obs[self.batch_obs] == b]
             self.adata_list.append(cur_a)
+        self.update_smender_memory()
             
     def set_ct_obs(self, new_ct):
         """Set cell type observation column."""
+        self.update_smender_memory()
         if new_ct not in self.adata.obs:
             print('Please input a valid cell type obs')
             return
@@ -803,9 +818,11 @@ class SMENDER(object):
                 print(f"Warning: {pd.isna(self.adata.obs[self.ct_obs]).sum()} NaN values in {self.ct_obs}. Replacing with 'unknown'.")
                 self.adata.obs[self.ct_obs] = self.adata.obs[self.ct_obs].fillna('unknown')
             self.ct_unique = np.unique(self.adata.obs[self.ct_obs])
+            self.update_smender_memory()
     
     def set_MENDER_para(self, nn_mode='k', nn_para=1, count_rep='s', include_self=True, n_scales=15):
         """Set parameters for all SMENDER instances."""
+        self.update_smender_memory()
         if nn_mode not in ['ring', 'radius', 'k']:
             print('nn_mode: please input in [ring, radius, k]')
             return
@@ -817,10 +834,12 @@ class SMENDER(object):
         self.count_rep = count_rep
         self.include_self = include_self
         self.n_scales = n_scales
+        self.update_smender_memory()
         
     def run_representation(self, group_norm=False):
         """Run representation sequentially."""
         print('for faster version, use run_representation_mp')
+        self.update_smender_memory()
         adata_MENDER_list = []
         total_dim_time = 0.0
         total_dim_memory = 0.0
@@ -858,16 +877,18 @@ class SMENDER(object):
             total_nn_memory += nn_memory
             cur_adata_MENDER = cur_MENDER.adata_MENDER.copy()
             adata_MENDER_list.append(cur_adata_MENDER)
+            self.update_smender_memory()
         self.adata_MENDER_list = adata_MENDER_list
         if self.is_tracking_dim_reduction_time:
-            self.dim_reduction_time += total_dim_time
+            self.dim_reduction_time = total_dim_time
         if self.is_tracking_dim_reduction_memory:
-            self.dim_reduction_memory += total_dim_memory
+            self.dim_reduction_memory = total_dim_memory
         if self.is_tracking_nn_time:
-            self.nn_time += total_nn_time
+            self.nn_time = total_nn_time
         if self.is_tracking_nn_memory:
-            self.nn_memory += total_nn_memory
-    
+            self.nn_memory = total_nn_memory
+        self.update_smender_memory()
+        
     @staticmethod
     def mp_helper(args):
         """Helper function for parallel representation."""
@@ -901,16 +922,20 @@ class SMENDER(object):
         
     def estimate_radius(self):
         """Estimate radius for each batch."""
+        self.update_smender_memory()
         for i in range(len(self.batch_list)):
             cur_batch_name = self.batch_list[i]
             cur_batch_adata = self.adata_list[i]
             cur_MENDER = SMENDER_single(cur_batch_adata, ct_obs=self.ct_obs, verbose=self.verbose, random_seed=self.random_seed)
             cur_MENDER.estimate_radius()
             print(f'{cur_batch_name}: estimated radius: {cur_MENDER.estimated_radius}')
+            self.update_smender_memory()
+        self.update_smender_memory()
         
     def run_representation_mp(self, mp=200, group_norm=False):
         """Run representation in parallel across batches."""
         print('default number of processes is 200')
+        self.update_smender_memory()
         self.group_norm = group_norm
         adata_MENDER_list = []
         total_dim_time = 0.0
@@ -973,18 +998,22 @@ class SMENDER(object):
             self.nn_time += total_nn_time
         if self.is_tracking_nn_memory:
             self.nn_memory += total_nn_memory
+        self.update_smender_memory()
     
     def refresh_adata_MENDER(self):
         """Refresh adata_MENDER from dump."""
+        self.update_smender_memory()
         if not hasattr(self, 'adata_MENDER_dump'):
             print("Error: adata_MENDER_dump not found.")
             return
         del self.adata_MENDER
         self.adata_MENDER = self.adata_MENDER_dump.copy()
         self.is_adata_MENDER_preprocess = False
+        self.update_smender_memory()
         
     def preprocess_adata_MENDER(self, mode=3, neighbor=True, track_dim_time=False, track_dim_memory=False):
         """Preprocess adata_MENDER for clustering."""
+        self.update_smender_memory()
         dim_time, dim_memory = SMENDER_single.preprocess_adata_MENDER(
             self, mode=mode, neighbor=neighbor,
             track_dim_time=track_dim_time,
@@ -994,10 +1023,12 @@ class SMENDER(object):
             self.dim_reduction_time += dim_time
         if self.is_tracking_dim_reduction_memory:
             self.dim_reduction_memory += dim_memory
+        self.update_smender_memory()
         return dim_time, dim_memory
         
     def run_clustering_normal(self, target_k, run_umap=False, if_reprocess=True):
         """Run clustering for all SMENDER instances."""
+        self.update_smender_memory()
         if not hasattr(self, 'adata_MENDER'):
             print("Error: adata_MENDER not initialized. Run representation first.")
             return 0.0, 0.0
@@ -1014,10 +1045,12 @@ class SMENDER(object):
             print(f"Warning: {self.adata_MENDER.obs['MENDER'].isna().sum()} NaN values in concatenated MENDER. Replacing with 'unknown'.")
             self.adata_MENDER.obs['MENDER'] = self.adata_MENDER.obs['MENDER'].fillna('unknown')
             self.adata_MENDER.obs['MENDER'] = self.adata_MENDER.obs['MENDER'].astype('category')
+        self.update_smender_memory()
         return dim_time, dim_memory
-        
+    
     def run_clustering_mclust(self, target_k, run_umap=False):
         """Run mclust clustering for all SMENDER instances."""
+        self.update_smender_memory()
         if not hasattr(self, 'adata_MENDER'):
             print("Error: adata_MENDER not initialized. Run representation first.")
             return 0.0, 0.0
@@ -1034,6 +1067,7 @@ class SMENDER(object):
             print(f"Warning: {self.adata_MENDER.obs['MENDER'].isna().sum()} NaN values in concatenated MENDER. Replacing with 'unknown'.")
             self.adata_MENDER.obs['MENDER'] = self.adata_MENDER.obs['MENDER'].fillna('unknown')
             self.adata_MENDER.obs['MENDER'] = self.adata_MENDER.obs['MENDER'].astype('category')
+        self.update_smender_memory()
         return dim_time, dim_memory
         
     def output_cluster(self, dirname, obs):
