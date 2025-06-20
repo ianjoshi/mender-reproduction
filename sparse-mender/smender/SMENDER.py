@@ -1,4 +1,3 @@
-import seaborn as sns
 import numpy as np
 import scanpy as sc
 import squidpy as sq
@@ -30,7 +29,6 @@ class SMENDER_single(object):
                 raise ValueError("dim_reduction must be 'pca', 'nmf', 'ica', or 'fa'")
             if self.ann is not None and not hasattr(self.ann, "build_graph"):
                 raise TypeError("Provided ANN object must implement a 'build_graph(adata, k, include_self)' method.")
-            self.process = psutil.Process()
         else:
             print('Please input an anndata object with spatial coordinates')
             exit(1)
@@ -105,7 +103,7 @@ class SMENDER_single(object):
         if track_nn_time:
             nn_start_time = time.time()
         if track_nn_memory:
-            nn_start_memory = self.process.memory_info().rss / (1024 ** 2)
+            nn_start_memory = psutil.Process().memory_info().rss / (1024 ** 2)
         if self.ann:
             self.ann.build_graph(adata_tmp, k=self.nn_para + cur_scale, include_self=self.include_self)
         else:
@@ -113,7 +111,7 @@ class SMENDER_single(object):
         if track_nn_time:
             nn_time = time.time() - nn_start_time
         if track_nn_memory:
-            current_memory = self.process.memory_info().rss / (1024 ** 2)
+            current_memory = psutil.Process().memory_info().rss / (1024 ** 2)
             nn_memory = max(current_memory - nn_start_memory, 0)
         
         I = adata_tmp.obsp['spatial_connectivities']
@@ -163,7 +161,7 @@ class SMENDER_single(object):
             if track_nn_time:
                 nn_start_time = time.time()
             if track_nn_memory:
-                nn_start_memory = self.process.memory_info().rss / (1024 ** 2)
+                nn_start_memory = psutil.Process().memory_info().rss / (1024 ** 2)
             if self.ann:
                 self.ann.build_graph(self.adata, k=self.nn_para + cur_scale, include_self=self.include_self)
             else:
@@ -171,7 +169,7 @@ class SMENDER_single(object):
             if track_nn_time:
                 nn_time += time.time() - nn_start_time
             if track_nn_memory:
-                current_memory = self.process.memory_info().rss / (1024 ** 2)
+                current_memory = psutil.Process().memory_info().rss / (1024 ** 2)
                 nn_memory += max(current_memory - nn_start_memory, 0)
             I = self.adata.obsp['spatial_connectivities']
             ME_X = np.zeros(shape=(cls_array.shape[0], ME_var_names_np_unique.shape[0]))
@@ -216,7 +214,7 @@ class SMENDER_single(object):
             if track_nn_time:
                 nn_start_time = time.time()
             if track_nn_memory:
-                nn_start_memory = self.process.memory_info().rss / (1024 ** 2)
+                nn_start_memory = psutil.Process().memory_info().rss / (1024 ** 2)
             if self.ann:
                 self.ann.build_graph(self.adata, k=self.nn_para + cur_scale, include_self=self.include_self)
             else:
@@ -224,7 +222,7 @@ class SMENDER_single(object):
             if track_nn_time:
                 nn_time += time.time() - nn_start_time
             if track_nn_memory:
-                current_memory = self.process.memory_info().rss / (1024 ** 2)
+                current_memory = psutil.Process().memory_info().rss / (1024 ** 2)
                 nn_memory += max(current_memory - nn_start_memory, 0)
             I = self.adata.obsp['spatial_connectivities']
             ME_X = np.zeros(shape=(cls_array.shape[0], ME_var_names_np_unique.shape[0]))
@@ -269,7 +267,7 @@ class SMENDER_single(object):
             if track_nn_time:
                 nn_start_time = time.time()
             if track_nn_memory:
-                nn_start_memory = self.process.memory_info().rss / (1024 ** 2)
+                nn_start_memory = psutil.Process().memory_info().rss / (1024 ** 2)
             if self.ann:
                 self.ann.build_graph(self.adata, k=self.nn_para + cur_scale, include_self=self.include_self)
             else:
@@ -277,7 +275,7 @@ class SMENDER_single(object):
             if track_nn_time:
                 nn_time += time.time() - nn_start_time
             if track_nn_memory:
-                current_memory = self.process.memory_info().rss / (1024 ** 2)
+                current_memory = psutil.Process().memory_info().rss / (1024 ** 2)
                 nn_memory += max(current_memory - nn_start_memory, 0)
             I = self.adata.obsp['spatial_connectivities']
             ME_X = np.zeros(shape=(cls_array.shape[0], ME_var_names_np_unique.shape[0]))
@@ -345,7 +343,7 @@ class SMENDER_single(object):
             if track_dim_time:
                 dim_start_time = time.time()
             if track_dim_memory:
-                dim_start_memory = self.process.memory_info().rss / (1024 ** 2)
+                dim_start_memory = psutil.Process().memory_info().rss / (1024 ** 2)
             if self.dim_reduction == 'pca':
                 sc.pp.pca(self.adata_MENDER)
                 self.adata_MENDER.obsm['X_dim_reduction'] = self.adata_MENDER.obsm['X_pca'].copy()
@@ -368,7 +366,7 @@ class SMENDER_single(object):
             if track_dim_time:
                 dim_time = time.time() - dim_start_time
             if track_dim_memory:
-                current_memory = self.process.memory_info().rss / (1024 ** 2)
+                current_memory = psutil.Process().memory_info().rss / (1024 ** 2)
                 dim_memory = max(current_memory - dim_start_memory, 0)
             if neighbor:
                 sc.pp.neighbors(self.adata_MENDER, use_rep='X_dim_reduction', random_state=self.random_seed)
@@ -470,8 +468,7 @@ class SMENDER(object):
         self.dim_reduction_memory_start = None
         self.nn_time_start = None
         self.nn_memory_start = None
-        self.process = psutil.Process()
-    
+
     def start_smender_timing(self):
         """Start timing for the entire SMENDER operation."""
         if self.is_tracking_smender_time:
@@ -497,7 +494,7 @@ class SMENDER(object):
             print("SMENDER memory tracking already started.")
             return
         self.is_tracking_smender_memory = True
-        self.smender_memory_start = self.process.memory_info().rss / (1024 ** 2)
+        self.smender_memory_start = psutil.Process().memory_info().rss / (1024 ** 2)
         
     def stop_smender_memory(self):
         """Stop memory tracking for the entire SMENDER operation and return total usage."""
@@ -505,7 +502,7 @@ class SMENDER(object):
             print("SMENDER memory tracking not started.")
             return self.smender_memory
         self.is_tracking_smender_memory = False
-        current_memory = self.process.memory_info().rss / (1024 ** 2)
+        current_memory = psutil.Process().memory_info().rss / (1024 ** 2)
         usage = current_memory - self.smender_memory_start
         self.smender_memory += max(usage, 0)
         self.smender_memory_start = None
@@ -536,7 +533,7 @@ class SMENDER(object):
             print("Dimensionality reduction memory tracking already started.")
             return
         self.is_tracking_dim_reduction_memory = True
-        self.dim_reduction_memory_start = self.process.memory_info().rss / (1024 ** 2)
+        self.dim_reduction_memory_start = psutil.Process().memory_info().rss / (1024 ** 2)
         
     def stop_dim_reduction_memory(self):
         """Stop memory tracking for dimensionality reduction and return total usage."""
@@ -544,7 +541,7 @@ class SMENDER(object):
             print("Dimensionality reduction memory tracking not started.")
             return self.dim_reduction_memory
         self.is_tracking_dim_reduction_memory = False
-        current_memory = self.process.memory_info().rss / (1024 ** 2)
+        current_memory = psutil.Process().memory_info().rss / (1024 ** 2)
         usage = current_memory - self.dim_reduction_memory_start
         self.dim_reduction_memory += max(usage, 0)
         self.dim_reduction_memory_start = None
@@ -575,7 +572,7 @@ class SMENDER(object):
             print("NN memory tracking already started.")
             return
         self.is_tracking_nn_memory = True
-        self.nn_memory_start = self.process.memory_info().rss / (1024 ** 2)
+        self.nn_memory_start = psutil.Process().memory_info().rss / (1024 ** 2)
         
     def stop_nn_memory(self):
         """Stop memory tracking for NN/non-NN operations and return total usage."""
@@ -583,7 +580,7 @@ class SMENDER(object):
             print("NN memory tracking not started.")
             return self.nn_memory
         self.is_tracking_nn_memory = False
-        current_memory = self.process.memory_info().rss / (1024 ** 2)
+        current_memory = psutil.Process().memory_info().rss / (1024 ** 2)
         usage = current_memory - self.nn_memory_start
         self.nn_memory += max(usage, 0)
         self.nn_memory_start = None
@@ -666,32 +663,32 @@ class SMENDER(object):
         if self.is_tracking_nn_memory:
             self.nn_memory += total_nn_memory
     
-    def mp_helper(self, i):
-        cur_batch_name = self.batch_list[i]
-        cur_batch_adata = self.adata_list[i]
-        print(f'total batch: {len(self.batch_list)}, running batch {cur_batch_name}')
-        ann_instance = self.ann_class() if self.ann_class else None
+    @staticmethod
+    def mp_helper(args):
+        i, batch_name, batch_adata, ct_obs, verbose, random_seed, ann_class, dim_reduction, nn_mode, nn_para, count_rep, include_self, n_scales, group_norm, track_dim_time, track_dim_memory, track_nn_time, track_nn_memory, ct_unique = args
+        print(f'total batch: {i+1}, running batch {batch_name}')
+        ann_instance = ann_class() if ann_class else None
         cur_MENDER = SMENDER_single(
-            cur_batch_adata,
-            ct_obs=self.ct_obs,
-            verbose=self.verbose,
-            random_seed=self.random_seed,
+            batch_adata,
+            ct_obs=ct_obs,
+            verbose=verbose,
+            random_seed=random_seed,
             ann=ann_instance,
-            dim_reduction=self.dim_reduction)
+            dim_reduction=dim_reduction)
         cur_MENDER.set_MENDER_para(
-            nn_mode=self.nn_mode,
-            nn_para=self.nn_para,
-            count_rep=self.count_rep,
-            include_self=self.include_self,
-            n_scales=self.n_scales
+            nn_mode=nn_mode,
+            nn_para=nn_para,
+            count_rep=count_rep,
+            include_self=include_self,
+            n_scales=n_scales
         )
-        cur_MENDER.ct_unique = self.ct_unique
+        cur_MENDER.ct_unique = ct_unique
         _, dim_time, dim_memory, nn_time, nn_memory = cur_MENDER.run_representation(
-            group_norm=self.group_norm,
-            track_dim_time=self.is_tracking_dim_reduction_time,
-            track_dim_memory=self.is_tracking_dim_reduction_memory,
-            track_nn_time=self.is_tracking_nn_time,
-            track_nn_memory=self.is_tracking_nn_memory
+            group_norm=group_norm,
+            track_dim_time=track_dim_time,
+            track_dim_memory=track_dim_memory,
+            track_nn_time=track_nn_time,
+            track_nn_memory=track_nn_memory
         )
         cur_adata_MENDER = cur_MENDER.adata_MENDER.copy()
         return cur_adata_MENDER, dim_time, dim_memory, nn_time, nn_memory
@@ -705,8 +702,8 @@ class SMENDER(object):
             print(f'{cur_batch_name}: estimated radius: {cur_MENDER.estimated_radius}')
         
     def run_representation_mp(self, mp=200, group_norm=False):
-        print('default number of process is 200')
-        from multiprocessing import Process, Pool
+        print('default number of processes is 200')
+        from multiprocessing import Pool
         self.group_norm = group_norm
         adata_MENDER_list = []
         total_dim_time = 0.0
@@ -715,7 +712,30 @@ class SMENDER(object):
         total_nn_memory = 0.0
         i_list = np.arange(len(self.batch_list))
         pool = Pool(mp)
-        results = pool.map(self.mp_helper, i_list)
+        args = [
+            (
+                i,
+                self.batch_list[i],
+                self.adata_list[i],
+                self.ct_obs,
+                self.verbose,
+                self.random_seed,
+                self.ann_class,
+                self.dim_reduction,
+                self.nn_mode,
+                self.nn_para,
+                self.count_rep,
+                self.include_self,
+                self.n_scales,
+                self.group_norm,
+                self.is_tracking_dim_reduction_time,
+                self.is_tracking_dim_reduction_memory,
+                self.is_tracking_nn_time,
+                self.is_tracking_nn_memory,
+                self.ct_unique
+            ) for i in i_list
+        ]
+        results = pool.map(self.mp_helper, args)
         pool.close()
         pool.join()
         adata_MENDER_list = [r[0] for r in results]
@@ -775,7 +795,7 @@ class SMENDER(object):
     def output_cluster(self, dirname, obs):
         sc.pl.embedding(self.adata_MENDER, basis='X_MENDERMAP2D', color=obs, save=f'_umap_{obs}')
         path = dirname
-        os.mkdir(f'figures/spatial_{path}')
+        os.makedirs(f'figures/spatial_{path}', exist_ok=True)
         adata_feature = self.adata_MENDER
         for i in range(len(self.batch_list)):
             cur_batch = self.batch_list[i]
@@ -815,3 +835,5 @@ class SMENDER(object):
             ax = sc.pl.embedding(cur_a, basis='spatial', color=obs, show=False)
             ax.axis('equal')
             ax.set_title(title)
+            plt.savefig(f'figures/spatial_{path}/{cur_batch}.png', dpi=200, bbox_inches='tight', transparent=True)
+            plt.close()
