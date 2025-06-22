@@ -732,7 +732,8 @@ class SMENDER(object):
             return self.dim_reduction_time
         self.is_tracking_dim_reduction_time = False
         elapsed = time.time() - self.dim_reduction_time_start
-        self.dim_reduction_time += elapsed
+        num_batches = len(self.batch_list) if self.batch_list is not None else 1
+        self.dim_reduction_time += (elapsed / max(num_batches, 1))
         self.dim_reduction_time_start = None
         return self.dim_reduction_time
         
@@ -771,7 +772,8 @@ class SMENDER(object):
             return self.nn_time
         self.is_tracking_nn_time = False
         elapsed = time.time() - self.nn_time_start
-        self.nn_time += elapsed
+        num_batches = len(self.batch_list) if self.batch_list is not None else 1
+        self.nn_time += (elapsed / max(num_batches, 1))
         self.nn_time_start = None
         return self.nn_time
         
