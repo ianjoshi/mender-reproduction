@@ -23,11 +23,11 @@
         "CHAOS": 0.007050954625411517
     },
     "performance": {
-        "smender_time_seconds": 1030.8453640937805,
-        "smender_memory_mb": 2331.62109375,
-        "dim_reduction_time_seconds": 1058.2919218540192,
-        "dim_reduction_memory_mb": 1257.171875,
-        "nn_time_seconds": 1131.4425075054169,
-        "nn_memory_mb": 976.6015625
+        "smender_time_seconds": 1723.7235960960388,
+        "smender_memory_mb": 2515.27734375,
+        "dim_reduction_time_seconds": 92.1696136997592,
+        "dim_reduction_memory_mb": 1279.72265625,
+        "nn_time_seconds": 165.6875465916049,
+        "nn_memory_mb": 987.828125
     }
 }
