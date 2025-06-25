@@ -128,4 +128,4 @@ jupyter notebook experiments/analysis.ipynb
 > Delft, Netherlands
 
 ## AI Disclaimer
-README.md was refined using ChatGPT-4o, but all ideas and implementation belong to the author.
+This README was refined using ChatGPT-4o, but all ideas and implementation belong to the author.
