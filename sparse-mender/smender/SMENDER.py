@@ -439,7 +439,7 @@ class SMENDER_single(object):
             if track_dim_memory:
                 dim_start_memory = psutil.Process().memory_info().rss / (1024 ** 2)
             if self.dim_reduction == 'pca':
-                sc.pp.pca(self.adata_MENDER, n_comps=50, random_state=self.random_seed)
+                sc.pp.pca(self.adata_MENDER, n_comps=16, random_state=self.random_seed)
                 self.adata_MENDER.obsm['X_dim_reduction'] = self.adata_MENDER.obsm['X_pca'].copy()
             elif self.dim_reduction == 'nmf':
                 if np.any(self.adata_MENDER.X < 0):

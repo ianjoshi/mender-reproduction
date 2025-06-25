@@ -8,5 +8,6 @@ matplotlib==3.10.3
 numpy==2.2.6
 psutil==7.0.0
 scanpy==1.11.2
+scikit-misc==0.5.1
 squidpy==1.6.5
 git+https://github.com/TencentAILabHealthcare/pysodb.git
