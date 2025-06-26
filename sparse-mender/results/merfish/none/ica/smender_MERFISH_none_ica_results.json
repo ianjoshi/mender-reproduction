@@ -1,0 +1,26 @@
+{
+    "results": {
+        "n_cells": 378918,
+        "n_genes": 374,
+        "cluster_counts": {
+            "0": 192806,
+            "1": 97582,
+            "2": 45338,
+            "3": 43192
+        }
+    },
+    "scores": {
+        "NMI": 0.6505976499845199,
+        "ARI": 0.47984679588912943,
+        "PAS": 0.55385334030054,
+        "CHAOS": 0.006299027298394902
+    },
+    "performance": {
+        "smender_time_seconds": 708.7694296836853,
+        "smender_memory_mb": 2953.22265625,
+        "dim_reduction_time_seconds": 225.57977793293614,
+        "dim_reduction_memory_mb": 2343.5703125,
+        "nn_time_seconds": 55.36010596829076,
+        "nn_memory_mb": 2319.13671875
+    }
+}

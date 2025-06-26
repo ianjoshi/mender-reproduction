@@ -1,0 +1,188 @@
+{
+    "MsBrainAgingSpatialDonor_1_0": {
+        "NMI": 0.616,
+        "ARI": 0.53,
+        "PAS": 0.016,
+        "CHAOS": 0.015
+    },
+    "MsBrainAgingSpatialDonor_2_0": {
+        "NMI": 0.7,
+        "ARI": 0.537,
+        "PAS": 0.015,
+        "CHAOS": 0.016
+    },
+    "MsBrainAgingSpatialDonor_2_1": {
+        "NMI": 0.769,
+        "ARI": 0.746,
+        "PAS": 0.011,
+        "CHAOS": 0.012
+    },
+    "MsBrainAgingSpatialDonor_3_0": {
+        "NMI": 0.772,
+        "ARI": 0.678,
+        "PAS": 0.012,
+        "CHAOS": 0.014
+    },
+    "MsBrainAgingSpatialDonor_3_1": {
+        "NMI": 0.761,
+        "ARI": 0.668,
+        "PAS": 0.013,
+        "CHAOS": 0.015
+    },
+    "MsBrainAgingSpatialDonor_4_0": {
+        "NMI": 0.639,
+        "ARI": 0.538,
+        "PAS": 0.018,
+        "CHAOS": 0.022
+    },
+    "MsBrainAgingSpatialDonor_4_1": {
+        "NMI": 0.782,
+        "ARI": 0.777,
+        "PAS": 0.01,
+        "CHAOS": 0.019
+    },
+    "MsBrainAgingSpatialDonor_4_2": {
+        "NMI": 0.789,
+        "ARI": 0.775,
+        "PAS": 0.01,
+        "CHAOS": 0.019
+    },
+    "MsBrainAgingSpatialDonor_5_0": {
+        "NMI": 0.747,
+        "ARI": 0.646,
+        "PAS": 0.011,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_5_1": {
+        "NMI": 0.574,
+        "ARI": 0.502,
+        "PAS": 0.015,
+        "CHAOS": 0.021
+    },
+    "MsBrainAgingSpatialDonor_5_2": {
+        "NMI": 0.73,
+        "ARI": 0.67,
+        "PAS": 0.015,
+        "CHAOS": 0.021
+    },
+    "MsBrainAgingSpatialDonor_6_0": {
+        "NMI": 0.718,
+        "ARI": 0.578,
+        "PAS": 0.016,
+        "CHAOS": 0.021
+    },
+    "MsBrainAgingSpatialDonor_6_1": {
+        "NMI": 0.723,
+        "ARI": 0.646,
+        "PAS": 0.015,
+        "CHAOS": 0.023
+    },
+    "MsBrainAgingSpatialDonor_6_2": {
+        "NMI": 0.735,
+        "ARI": 0.611,
+        "PAS": 0.017,
+        "CHAOS": 0.022
+    },
+    "MsBrainAgingSpatialDonor_7_0": {
+        "NMI": 0.756,
+        "ARI": 0.764,
+        "PAS": 0.015,
+        "CHAOS": 0.019
+    },
+    "MsBrainAgingSpatialDonor_7_1": {
+        "NMI": 0.749,
+        "ARI": 0.731,
+        "PAS": 0.015,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_7_2": {
+        "NMI": 0.797,
+        "ARI": 0.817,
+        "PAS": 0.013,
+        "CHAOS": 0.018
+    },
+    "MsBrainAgingSpatialDonor_8_0": {
+        "NMI": 0.783,
+        "ARI": 0.838,
+        "PAS": 0.013,
+        "CHAOS": 0.017
+    },
+    "MsBrainAgingSpatialDonor_8_1": {
+        "NMI": 0.774,
+        "ARI": 0.76,
+        "PAS": 0.014,
+        "CHAOS": 0.019
+    },
+    "MsBrainAgingSpatialDonor_8_2": {
+        "NMI": 0.782,
+        "ARI": 0.76,
+        "PAS": 0.014,
+        "CHAOS": 0.019
+    },
+    "MsBrainAgingSpatialDonor_9_0": {
+        "NMI": 0.659,
+        "ARI": 0.492,
+        "PAS": 0.018,
+        "CHAOS": 0.019
+    },
+    "MsBrainAgingSpatialDonor_9_1": {
+        "NMI": 0.717,
+        "ARI": 0.616,
+        "PAS": 0.016,
+        "CHAOS": 0.018
+    },
+    "MsBrainAgingSpatialDonor_9_2": {
+        "NMI": 0.674,
+        "ARI": 0.583,
+        "PAS": 0.019,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_10_0": {
+        "NMI": 0.751,
+        "ARI": 0.684,
+        "PAS": 0.019,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_10_1": {
+        "NMI": 0.647,
+        "ARI": 0.523,
+        "PAS": 0.02,
+        "CHAOS": 0.019
+    },
+    "MsBrainAgingSpatialDonor_10_2": {
+        "NMI": 0.722,
+        "ARI": 0.631,
+        "PAS": 0.017,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_11_0": {
+        "NMI": 0.741,
+        "ARI": 0.679,
+        "PAS": 0.015,
+        "CHAOS": 0.022
+    },
+    "MsBrainAgingSpatialDonor_11_1": {
+        "NMI": 0.699,
+        "ARI": 0.687,
+        "PAS": 0.021,
+        "CHAOS": 0.017
+    },
+    "MsBrainAgingSpatialDonor_11_2": {
+        "NMI": 0.691,
+        "ARI": 0.578,
+        "PAS": 0.018,
+        "CHAOS": 0.023
+    },
+    "MsBrainAgingSpatialDonor_12_0": {
+        "NMI": 0.744,
+        "ARI": 0.633,
+        "PAS": 0.014,
+        "CHAOS": 0.016
+    },
+    "MsBrainAgingSpatialDonor_12_1": {
+        "NMI": 0.72,
+        "ARI": 0.584,
+        "PAS": 0.018,
+        "CHAOS": 0.016
+    }
+}

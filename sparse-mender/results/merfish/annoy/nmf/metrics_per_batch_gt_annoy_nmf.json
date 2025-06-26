@@ -1,0 +1,126 @@
+{
+    "MsBrainAgingSpatialDonor_1_0": {
+        "PAS": 0.046,
+        "CHAOS": 0.015
+    },
+    "MsBrainAgingSpatialDonor_2_0": {
+        "PAS": 0.039,
+        "CHAOS": 0.016
+    },
+    "MsBrainAgingSpatialDonor_2_1": {
+        "PAS": 0.029,
+        "CHAOS": 0.013
+    },
+    "MsBrainAgingSpatialDonor_3_0": {
+        "PAS": 0.028,
+        "CHAOS": 0.015
+    },
+    "MsBrainAgingSpatialDonor_3_1": {
+        "PAS": 0.028,
+        "CHAOS": 0.016
+    },
+    "MsBrainAgingSpatialDonor_4_0": {
+        "PAS": 0.041,
+        "CHAOS": 0.022
+    },
+    "MsBrainAgingSpatialDonor_4_1": {
+        "PAS": 0.023,
+        "CHAOS": 0.019
+    },
+    "MsBrainAgingSpatialDonor_4_2": {
+        "PAS": 0.03,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_5_0": {
+        "PAS": 0.036,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_5_1": {
+        "PAS": 0.049,
+        "CHAOS": 0.022
+    },
+    "MsBrainAgingSpatialDonor_5_2": {
+        "PAS": 0.041,
+        "CHAOS": 0.022
+    },
+    "MsBrainAgingSpatialDonor_6_0": {
+        "PAS": 0.031,
+        "CHAOS": 0.021
+    },
+    "MsBrainAgingSpatialDonor_6_1": {
+        "PAS": 0.04,
+        "CHAOS": 0.023
+    },
+    "MsBrainAgingSpatialDonor_6_2": {
+        "PAS": 0.037,
+        "CHAOS": 0.022
+    },
+    "MsBrainAgingSpatialDonor_7_0": {
+        "PAS": 0.03,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_7_1": {
+        "PAS": 0.033,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_7_2": {
+        "PAS": 0.029,
+        "CHAOS": 0.019
+    },
+    "MsBrainAgingSpatialDonor_8_0": {
+        "PAS": 0.024,
+        "CHAOS": 0.018
+    },
+    "MsBrainAgingSpatialDonor_8_1": {
+        "PAS": 0.032,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_8_2": {
+        "PAS": 0.027,
+        "CHAOS": 0.019
+    },
+    "MsBrainAgingSpatialDonor_9_0": {
+        "PAS": 0.046,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_9_1": {
+        "PAS": 0.034,
+        "CHAOS": 0.019
+    },
+    "MsBrainAgingSpatialDonor_9_2": {
+        "PAS": 0.042,
+        "CHAOS": 0.021
+    },
+    "MsBrainAgingSpatialDonor_10_0": {
+        "PAS": 0.038,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_10_1": {
+        "PAS": 0.045,
+        "CHAOS": 0.02
+    },
+    "MsBrainAgingSpatialDonor_10_2": {
+        "PAS": 0.03,
+        "CHAOS": 0.022
+    },
+    "MsBrainAgingSpatialDonor_11_0": {
+        "PAS": 0.05,
+        "CHAOS": 0.023
+    },
+    "MsBrainAgingSpatialDonor_11_1": {
+        "PAS": 0.055,
+        "CHAOS": 0.018
+    },
+    "MsBrainAgingSpatialDonor_11_2": {
+        "PAS": 0.053,
+        "CHAOS": 0.025
+    },
+    "MsBrainAgingSpatialDonor_12_0": {
+        "PAS": 0.035,
+        "CHAOS": 0.016
+    },
+    "MsBrainAgingSpatialDonor_12_1": {
+        "PAS": 0.033,
+        "CHAOS": 0.017
+    }
+}
