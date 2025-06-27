@@ -33,8 +33,8 @@ Consequently, this study addresses the following research questions:
 Clone this repository and enter the project folder:
 
 ```bash
-git clone https://github.com/feenix-ho/dsait4045-group-5-mender.git
-cd dsait4045-group-5-mender/phuong_ho
+git clone https://github.com/ianjoshi/mender-reproduction.git
+cd mender-reproduction/phuong_ho
 ```
 
 Create and activate the Conda environment, then install dependencies:
